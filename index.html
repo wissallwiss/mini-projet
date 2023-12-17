@@ -8,25 +8,30 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+
     <header class="header">
         <a href="" class="logo">Wissal.</a>
-
+        
         <nav class="navbar">
-            <a href="">home</a>
-            <a href="">portfolio</a>
-            <a href="">contact</a>
+           
+               <a href="" style="--i:1">home</a>
+                <a href="#about" style="--i:2">about</a>
+                <!--a href="">projects</a-->
+                <a href="#contact" style="--i:3">contact</a>
+          
         </nav>
     </header>
+
+
     <section class="home">
         <div class="home-content">
-            <h4>Bonjour, je suis </h4>
+            <h4>Welcome to My Portfolio </h4>
             <h1>Lassoued Wissal</h1>
             <h3>Je suis une étudiante en 3ème année du cycle ingénieur..</h3>
         </div>
-        <span class="acceuil-imghover"></span>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="main">
             <img src="main.jpg" width="450x" height="500px" alt="about me">
             <div class="about-text">
@@ -37,28 +42,92 @@
         </div>
      </section>
 
-    <section class="contact">
+    <!--section class="projects">
+        <div class="project">
+            <h2>My Projects</h2>
+            <table>
+                <tr>
+                    <article>
+                        <h3><strong>Project 1</strong></h3>
+                        <p>ceci un paragraphe</p> 
+                    
+                    </article>
+                </tr> 
+                <tr>
+                    <article>
+                        
+                        <h3><strong>Project 2</strong></h3>
+                        <p>ceci un paragraphe</p> 
+                   
+                    </article>
+                </tr>
+                <tr>
+                    <article>
+                        
+                        <h3><strong>Project 3</strong></h3>
+                        <p>ceci un paragraphe</p> 
+                    
+                    </article>
+                </tr>
+            </table>
+        </div>
+
+    </section--> 
+
+    <section class="contact" id="contact">
         <div class="newslatter">
             <h3>Contact Me</h3>
             <form>
                 <input type="name" name="name" id="name" placeholder="enter your name">
                 <input type="email" name="email" id="email" placeholder="entrer your email">
-                <input type="message" name="message" id="message" placeholder="entrer your message ">
+                <input type="message" name="message" id="message" placeholder="entrer your message">
                 <!-- input type="submit" name="submit" value="send"-->
-                <button type="button">send</button>
+                <button type="submit">send</button>
         
         <div class="sci">
-            <a href=""><i class='bx bxl-facebook'></i></a>
-            <a href=""><i class='bx bxl-linkedin'></i></a>
-            <a href=""><i class='bx bxl-gmail' ></i></a>
+            <a href="https://www.facebook.com/wissal.lassoued.96/"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/wissal.lassoued28/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://mail.google.com/mail/u/1/#inbox"><i class='bx bxl-gmail' ></i></a>
         </div>
     </div>
     </form>
     </section>
     <footer>
-        <p class="end">2023-Esprit </p>
+        <p class="end">&copy; 2023 My Portfolio-Esprit </p>
     </footer>
 
-     
+    <script>
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+            
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                    });
+                });
+                });
+
+                const navToggle = document.querySelector('.navbar');
+                 document.querySelector('.logo').addEventListener('click', () => {
+            navToggle.classList.toggle('nav-active');
+             });
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+            e.preventDefault();
+            alert('Please fill out all fields');
+            }
+             });
+            document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+            document.querySelector('.navbar').classList.remove('nav-active');
+            });
+        });
+      </script>
+
 </body>
 </html>
